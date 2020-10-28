@@ -97,7 +97,7 @@ public class TreeNode {
     }
 
     public void printRoot(){
-        System.out.println("Root Node CNF");
+//        System.out.println("Root Node CNF");
         System.out.println(this);
     }
 

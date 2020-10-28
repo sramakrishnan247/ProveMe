@@ -6,6 +6,8 @@ public class CNFGenerator {
     public CNFGenerator(){
     }
 
+
+
     public TreeNode postOrder(TreeNode root){
         if(root != null){
             if(root.isUniqueChild()){
@@ -117,12 +119,12 @@ public class CNFGenerator {
         }
         return new ConjunctiveNormalForm(clauses);
     }
-    private ConjunctiveNormalForm getNegationCNF(ConjunctiveNormalForm originalChild ) {
+    private ConjunctiveNormalForm getNegationCNF(ConjunctiveNormalForm originalChild) {
         ConjunctiveNormalForm child = new ConjunctiveNormalForm(originalChild);
         ConjunctiveNormalForm result;
 
         if(child.getCNF().size() == 1){
-            System.out.println("Single item");
+//            System.out.println("Single item");
             result =  getNegationCNFSingleClause(child.getCNF().getFirst());
         }
         else{

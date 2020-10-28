@@ -1,0 +1,10 @@
+Knowledge Base:
+( Rain && Outside ) => Wet
+( Warm && ~Rain ) => Pleasant
+~Wet
+Outside
+Warm
+
+Prove the following sentences by refutation:
+Pleasant
+Rain
