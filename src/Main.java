@@ -15,6 +15,8 @@ public class Main {
 //          String inputString = "           (A && B ) || ~(C ||    D)  ";
 
         File file = new File("./src/kb.txt");
+//        File file = new File("./src/kb2.txt");
+
         ArrayList<String> inputKB = new ArrayList<>();
         ArrayList<String> inputSentences = new ArrayList<>();
         ArrayList<Clause> knowledgeBase = new ArrayList<>();
@@ -49,7 +51,7 @@ public class Main {
             }
             System.out.println();
 
-            System.out.println("Senteces to be proved:");
+            System.out.println("Sentences to be proved:");
             for(String sentence: inputSentences){
                 System.out.println(sentence);
             }
