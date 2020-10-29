@@ -8,9 +8,20 @@ public class Clause {
 
     private LinkedList<Literal> clause;
 
+    public Clause(){
+        clause = new LinkedList<>();
+    }
     public Clause(Literal literal){
         clause = new LinkedList<>();
         clause.add(literal);
+    }
+
+    //Copy constructor
+    public Clause(Clause copyClause){
+        clause = new LinkedList<>();
+        for(Literal literal : copyClause.getClause())
+            clause.add(literal);
+
     }
     public Clause(LinkedList<Literal> literals){
         clause = new LinkedList<>(literals);
@@ -20,6 +31,7 @@ public class Clause {
         return clause;
     }
 
+
     @Override
     public String toString() {
         String clauseString = "";
@@ -27,6 +39,8 @@ public class Clause {
             clauseString += literal.toString();
             clauseString += " v ";
         }
-        return clauseString.substring(0,clauseString.length()-2);
+        if(clauseString.length()>=3)
+            return clauseString.substring(0,clauseString.length()-2);
+        return clauseString;
     }
 }

@@ -47,10 +47,14 @@ public class Main {
             for(String expression : inputKB){
                 System.out.println(expression);
             }
+            System.out.println();
+
             System.out.println("Senteces to be proved:");
             for(String sentence: inputSentences){
                 System.out.println(sentence);
             }
+            System.out.println();
+
             scanner.close();
 
             //Preprocess the input KB and store all the expressions as CNF.
@@ -63,11 +67,27 @@ public class Main {
                 knowledgeBase.addAll(conjunctiveNormalForm.getCNF());
             }
 
+            System.out.println("Theorem Prover working...");
+            System.out.println();
             //Theorem Proving for each input sentence
             for(String sentence : inputSentences){
+                System.out.println("------------------------------------");
                 String negatedSentence = "~(" + sentence + ")";
-                Prover prover = new Prover(knowledgeBase, negatedSentence);
-                System.out.println(prover);
+                Prover prover = new Prover(new ArrayList<>(knowledgeBase), negatedSentence);
+                System.out.println("Knowledge base");
+                System.out.println(knowledgeBase);
+                System.out.println();
+                System.out.print("To prove: ");
+                System.out.println(sentence);
+                System.out.println();
+                System.out.println("Resolution as follows...");
+                System.out.println();
+                prover.plResolution();
+                System.out.println(sentence);
+                System.out.println();
+                System.out.println();
+
+
             }
 
         }

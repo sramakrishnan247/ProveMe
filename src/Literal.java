@@ -37,4 +37,10 @@ public class Literal {
             return "~" + symbol;
         }
     }
+
+    public boolean isComplementary(Literal other){
+        if(symbol.equals(other.getSymbol()) && isPositive() != other.isPositive())
+            return true;
+        return false;
+    }
 }
