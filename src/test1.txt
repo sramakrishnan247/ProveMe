@@ -1,0 +1,13 @@
+Knowledge Base:
+
+Humidity || Cloudy
+
+~Cloudy || Rain
+
+~Humidity || Hot
+
+~Hot
+
+Prove the following sentences by refutation:
+
+Rain

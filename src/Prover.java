@@ -49,7 +49,7 @@ public class Prover {
             for(int i = 0; i < clauseList.size() && !resolved; i++){
                 Clause ci = clauseList.get(i);
                 for(int j = i + 1; j < clauseList.size() && !resolved && !ci.getClause().isEmpty(); j++){
-                    System.out.println(this.toString());
+//                    System.out.println(this.toString());
                     Clause cj = clauseList.get(j);
                     Set<Clause> beforePlResolve = new HashSet<>();
                     Clause oldCi = new Clause(ci);
@@ -92,8 +92,8 @@ public class Prover {
             }
 
             if (!resolved){
-//                System.out.println("KB contains: ");
-//                System.out.println(clauses);
+                System.out.println("KB contains: ");
+                System.out.println(clauses);
                 System.out.println("No new clauses were added to KB");
                 System.out.print("KB does not entail: ");
                 return false;

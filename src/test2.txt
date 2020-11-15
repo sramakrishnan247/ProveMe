@@ -1,0 +1,17 @@
+Knowledge Base:
+
+A <=> (B || E)
+
+E => D
+
+C || F => ~B
+
+E => B
+
+B => F
+
+B => C
+
+Prove the following sentences by refutation:
+
+~A && ~B
