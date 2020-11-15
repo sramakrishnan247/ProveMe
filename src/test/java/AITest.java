@@ -1,15 +1,14 @@
-package test.java;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.ArrayList;
-import main.java.AI;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AITest {
-
-    @org.junit.jupiter.api.Test
-    void prove() {
+    @Test
+    void justAnExampleTest(){
         AI test = new AI();
         String inputFile0 = "./src/test/resources/test0.txt";
         String inputFile1 = "./src/test/resources/test1.txt";
@@ -25,6 +24,5 @@ class AITest {
         assertEquals(test1, test.prove(inputFile1));
         assertEquals(test2, test.prove(inputFile2));
         assertEquals(test3, test.prove(inputFile3));
-
     }
 }

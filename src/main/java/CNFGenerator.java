@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.LinkedList;
 
 public class CNFGenerator {

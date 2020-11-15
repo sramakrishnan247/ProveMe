@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.*;
 
 /**
@@ -54,6 +52,7 @@ public class Prover {
             for(int i = 0; i < clauseList.size() && !resolved; i++){
                 Clause ci = clauseList.get(i);
                 for(int j = i + 1; j < clauseList.size() && !resolved && !ci.getClause().isEmpty(); j++){
+//                    System.out.println(this.toString());
                     Clause cj = clauseList.get(j);
                     Set<Clause> beforePlResolve = new HashSet<>();
                     Clause oldCi = new Clause(ci);
@@ -68,9 +67,9 @@ public class Prover {
                         System.out.println(oldCj.getClause());
                         System.out.println("---------------------------------------");
                         if(resolvent.contains(emptyClause)){
-                            System.out.println("empty!");
-                            System.out.print("KB entails: ");
-                            return true;
+//                            System.out.println("empty!");
+//                            System.out.print("KB entails: ");
+//                            return true;
                         }
                         else{
                             for(Clause c:resolvent){
