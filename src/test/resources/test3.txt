@@ -1,0 +1,14 @@
+Knowledge Base:
+
+Mythical => Immortal
+
+~Mythical => ~Immortal && Mammal
+
+Immortal || Mammal => Horned
+
+Horned => Magical
+
+
+Prove the following sentences by refutation:
+
+Mythical
