@@ -1,12 +1,8 @@
 package main.java;
-
 /**
  * A literal will have a symbol.
  * A literal can be either positive or negative
- *
- *
  */
-
 
 public class Literal {
 

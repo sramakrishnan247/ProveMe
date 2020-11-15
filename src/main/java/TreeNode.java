@@ -2,6 +2,11 @@ package main.java;
 
 import java.util.LinkedList;
 
+/**
+ * This class represents an Expression tree.
+ * The root node stores the Conjunctive Normal Form.
+ */
+
 public class TreeNode {
     private String stringVal;
     private boolean operand;
@@ -64,10 +69,6 @@ public class TreeNode {
         String CNFString = CNF == null? "":CNF.toString();
         return "TreeNode{" +
                 "stringVal='" + stringVal + '\'' +
-//                ", operand=" + operand +
-//                ", left=" + left +
-//                ", right=" + right +
-//                ", uniqueChild=" + uniqueChild +
                 ", \nCNF=\n" + CNFString +
                 '}';
     }
@@ -99,7 +100,6 @@ public class TreeNode {
     }
 
     public void printRoot(){
-//        System.out.println("Root Node CNF");
         System.out.println(this);
     }
 

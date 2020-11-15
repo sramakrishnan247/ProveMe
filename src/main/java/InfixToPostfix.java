@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
+/**
+ * This class performs InfixToPostFix conversion
+ * Additionally, it also has utils to generate the expression tree.
+ */
+
 public class InfixToPostfix {
 
     private String expression;
@@ -24,6 +29,9 @@ public class InfixToPostfix {
         return expressionTreeRoot;
     }
 
+    /**
+     * Generates an expression tree from a postfix expression.
+     */
     private void generateTree() {
         Stack<TreeNode> expressionTreeStack = new Stack<>();
         for(String word: postfixList){
@@ -50,6 +58,10 @@ public class InfixToPostfix {
         expressionTreeRoot = expressionTreeStack.peek();
     }
 
+    /**
+     *  Performs Infix to Postfix conversion using a Stack.
+     *  Updates postfixList.
+     */
     private void infixToPostfix(){
         postfixList = new ArrayList<>();
         operatorStack = new Stack<>();
@@ -67,9 +79,13 @@ public class InfixToPostfix {
             postfixList.add(operatorStack.pop());
         }
 
-        return;
     }
 
+    /**
+     *
+     * @param expression Expression from input for parsing.
+     * @return infixList
+     */
     private ArrayList<String> parseInput(String expression) {
         ArrayList<String> infixList = new ArrayList<>();
         String buffer = "";

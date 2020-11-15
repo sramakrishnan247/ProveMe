@@ -3,7 +3,7 @@ package main.java;
 import java.util.LinkedList;
 /**
  * A Clause is a disjunction of literals
- *
+ * This is stored using a Linked List.
  */
 
 public class Clause {
@@ -13,12 +13,15 @@ public class Clause {
     public Clause(){
         clause = new LinkedList<>();
     }
+
     public Clause(Literal literal){
         clause = new LinkedList<>();
         clause.add(literal);
     }
 
-    //Copy constructor
+    /**
+     * Copy Constructor
+     */
     public Clause(Clause copyClause){
         clause = new LinkedList<>();
         for(Literal literal : copyClause.getClause())

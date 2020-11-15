@@ -40,7 +40,10 @@ public class Prover {
                 '}';
     }
 
-    //PL-Resolution Algorithm based on Artificial Intelligence A Modern Approach (3rd Edition)
+    /**
+     * PL-Resolution Algorithm based on Artificial Intelligence A Modern Approach (3rd Edition)
+     * @return boolean
+     */
     public boolean plResolution(){
 
         Set<Clause> clauses = KB;
@@ -51,7 +54,6 @@ public class Prover {
             for(int i = 0; i < clauseList.size() && !resolved; i++){
                 Clause ci = clauseList.get(i);
                 for(int j = i + 1; j < clauseList.size() && !resolved && !ci.getClause().isEmpty(); j++){
-//                    System.out.println(this.toString());
                     Clause cj = clauseList.get(j);
                     Set<Clause> beforePlResolve = new HashSet<>();
                     Clause oldCi = new Clause(ci);
@@ -104,8 +106,15 @@ public class Prover {
 
         }while (true);
     }
+
+    /**
+     *
+     * @param ci Clause 1
+     * @param cj Clause 2
+     * @param beforePlResolve Set of clauses before Resolution
+     * @return resolvent
+     */
     private Set<Clause> plResolve(Clause ci, Clause cj, Set<Clause> beforePlResolve){
-//        System.out.println(ci+","+cj);
         Set<Clause> resolvent = new LinkedHashSet<>();
         boolean found = false;
         int indexCi = 0;
@@ -145,9 +154,6 @@ public class Prover {
         }
         return resolvent;
     }
-
-
-
 
 }
 

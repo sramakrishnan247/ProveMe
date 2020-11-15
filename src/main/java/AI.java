@@ -8,9 +8,15 @@ import java.util.Scanner;
 public class AI {
 
     public AI(){
-
     }
 
+    /**
+     * Core logic.
+     * Parses the input file and creates the Knowledge Base
+     * Add negation of clauses to be proved to KB and erforms Resolution
+     * @param inputFile Input file for theorem proving in the correct format.
+     * @return list of boolean values
+     */
     public ArrayList<Boolean> prove(String inputFile){
 
         File file = new File(inputFile);
