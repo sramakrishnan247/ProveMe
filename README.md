@@ -1,8 +1,9 @@
 # ProveMe: A Theorem Prover for Propositional Logic
 ![Java CI with Maven](https://github.com/sramakrishnan247/ProveMe/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ### About
-This project proves sentences by [resolution](https://en.wikipedia.org/wiki/Resolution_(logic)) refutation given an input Knowledge base.
+This framework proves sentences by [resolution](https://en.wikipedia.org/wiki/Resolution_(logic)) refutation given an input Knowledge base.
 
 ### Requirements 🔧
 * Java version 8 or higher.
@@ -156,7 +157,7 @@ KB does not entail: Rain
 * Resolution algorithm.
 
 ### Thank You!
-If you found this useful, please ⭐️ this repo and share it with others!
+If you found this useful, please ⭐️  this repo and share it with others!
 
 ### References
 [Resolution Theorem Proving](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-825-techniques-in-artificial-intelligence-sma-5504-fall-2002/lecture-notes/Lecture7FinalPart1.pdf)
