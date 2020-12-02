@@ -75,10 +75,12 @@ public class AI {
             }
 
             System.out.println("Theorem Prover working...");
+            System.out.println("-------------------------------------------------");
             System.out.println();
             //Theorem Proving for each input sentence
             for(String sentence : inputSentences){
-                System.out.println("------------------------------------");
+                System.out.println();
+                System.out.println();
                 String negatedSentence = "~(" + sentence + ")";
                 Prover prover = new Prover(new ArrayList<>(knowledgeBase), negatedSentence);
                 System.out.println("Knowledge base");
@@ -103,6 +105,9 @@ public class AI {
         }
 
         System.out.println(results);
+        System.out.println();
+        System.out.println();
+        System.out.println("-------------------------------------------------");
         return results;
     }
 }

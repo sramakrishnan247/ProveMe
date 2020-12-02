@@ -1,3 +1,5 @@
+import javax.annotation.processing.SupportedSourceVersion;
+import java.awt.*;
 import java.util.*;
 
 /**
@@ -11,7 +13,6 @@ public class Prover {
     String sentence;
     Clause emptyClause;
     boolean resolved = false;
-
     public Prover(ArrayList<Clause> inputKB, String sentence ){
         KB = new HashSet<>();
         for(Clause clause: inputKB){
@@ -43,7 +44,7 @@ public class Prover {
      * @return boolean
      */
     public boolean plResolution(){
-
+        resolved = false;
         Set<Clause> clauses = KB;
         Set<Clause> newClauseSet = new LinkedHashSet<>();
         do {
@@ -52,44 +53,26 @@ public class Prover {
             for(int i = 0; i < clauseList.size() && !resolved; i++){
                 Clause ci = clauseList.get(i);
                 for(int j = i + 1; j < clauseList.size() && !resolved && !ci.getClause().isEmpty(); j++){
-//                    System.out.println(this.toString());
                     Clause cj = clauseList.get(j);
-                    Set<Clause> beforePlResolve = new HashSet<>();
-                    Clause oldCi = new Clause(ci);
-                    Clause oldCj = new Clause(cj);
-                    beforePlResolve.add(ci);
-                    beforePlResolve.add(cj);
-                    resolved = false;
-                    Set<Clause> resolvent = plResolve(ci, cj, beforePlResolve);
-                    if(resolved){
+                    Clause resolvent = plResolve(ci, cj);
+                    if(resolved) {
+                        clauseList.remove(ci);
+                        clauseList.remove(cj);
+                        System.out.println(resolvent);
                         System.out.println();
-                        System.out.println(oldCi.getClause());
-                        System.out.println(oldCj.getClause());
-                        System.out.println("---------------------------------------");
-                        if(resolvent.contains(emptyClause)){
-//                            System.out.println("empty!");
-//                            System.out.print("KB entails: ");
-//                            return true;
-                        }
-                        else{
-                            for(Clause c:resolvent){
-                                if(!c.getClause().isEmpty())
-                                    System.out.print(c.getClause());
-                            }
-                        }
-                        System.out.println();
-
+                        clauseList.add(resolvent);
                     }
-                    newClauseSet.addAll(resolvent);
                 }
             }
+
+
             clauses = new HashSet<>();
             for(Clause clause : clauseList){
-                if(!clause.getClause().isEmpty() && !clauses.contains(clause))
+                if(!clause.getClause().isEmpty())
                     clauses.add(clause);
             }
 
-            if(clauses.isEmpty() && newClauseSet.contains(emptyClause)){
+            if(clauses.isEmpty()){
                 System.out.print("KB entails: ");
                 return true;
             }
@@ -98,6 +81,7 @@ public class Prover {
                 System.out.println("KB contains: ");
                 System.out.println(clauses);
                 System.out.println("No new clauses were added to KB");
+                System.out.println("FAILURE!!");
                 System.out.print("KB does not entail: ");
                 return false;
             }
@@ -110,22 +94,14 @@ public class Prover {
      *
      * @param ci Clause 1
      * @param cj Clause 2
-     * @param beforePlResolve Set of clauses before Resolution
      * @return resolvent
      */
-    private Set<Clause> plResolve(Clause ci, Clause cj, Set<Clause> beforePlResolve){
-        Set<Clause> resolvent = new LinkedHashSet<>();
+    Clause plResolve(Clause ci, Clause cj){
+        Clause resolvent;
         boolean found = false;
         int indexCi = 0;
         int indexCj = 0;
-
-        if(ci.getClause().isEmpty()){
-            return beforePlResolve;
-        }
-
-        if(cj.getClause().isEmpty()){
-            return beforePlResolve;
-        }
+        resolved = false;
 
         for(int i = 0; i < ci.getClause().size() && !found; i++){
             Literal li = ci.getClause().get(i);
@@ -133,23 +109,37 @@ public class Prover {
                 Literal lj = cj.getClause().get(j);
                 if(li.isComplementary(lj)){
                     found = true;
-                    this.resolved = true;
+                    resolved = true;
                     indexCi = i;
                     indexCj = j;
                 }
             }
         }
         if(found){
+            System.out.println("Resolving...");
+            System.out.println(ci);
+            System.out.println(cj);
+            System.out.println("------------------------------------------");
             ci.getClause().remove(ci.getClause().get(indexCi));
             cj.getClause().remove(cj.getClause().get(indexCj));
         }
 
         if(ci.getClause().isEmpty() && cj.getClause().isEmpty()){
-            resolvent.add(emptyClause);
+            resolvent = emptyClause;
+            resolved = true;
         }
         else{
-            resolvent.add(ci);
-            resolvent.add(cj);
+            LinkedList<Literal> newClause = new LinkedList<>();
+            for(int i = 0; i < ci.getClause().size(); i++) {
+                Literal li = new Literal(ci.getClause().get(i));
+                newClause.add(li);
+            }
+            for(int j = 0; j < cj.getClause().size(); j++) {
+                Literal lj = new Literal(cj.getClause().get(j));
+                newClause.add(lj);
+            }
+            resolvent = new Clause(newClause);
+
         }
         return resolvent;
     }

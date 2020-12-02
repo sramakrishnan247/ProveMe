@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * A literal will have a symbol.
  * A literal can be either positive or negative
@@ -17,6 +19,13 @@ public class Literal {
         this.positive = positive;
     }
 
+    /**
+     * Copy Constructor
+     */
+    public Literal(Literal literal){
+         this.symbol = literal.getSymbol();
+         this.positive = literal.isPositive();
+    }
     public boolean isPositive() {
         return positive;
     }

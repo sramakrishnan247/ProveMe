@@ -34,6 +34,9 @@ public class Clause {
         return clause;
     }
 
+    public void insertLiteral(Literal literal){
+        clause.add(literal);
+    }
 
     @Override
     public String toString() {
