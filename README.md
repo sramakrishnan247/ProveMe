@@ -156,9 +156,6 @@ KB does not entail: Rain
 * Literal, clause and expression utilities.
 * Resolution algorithm.
 
-### Thank You!
-If you found this useful, please ⭐️  this repo and share it with others!
-
 ### References
 [Resolution Theorem Proving](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-825-techniques-in-artificial-intelligence-sma-5504-fall-2002/lecture-notes/Lecture7FinalPart1.pdf)
 
